@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Xamarin.Android.Fingerprint</id>
+    <version>$version$</version>
+    <title>Xamarin.Android.Fingerprint</title>
+    <authors>jzeferino</authors>
+    <iconUrl>https://github.com/jzeferino/Xamarin.Android.Fingerprint/blob/master/art/nuget_icon.png?raw=true</iconUrl>
+    <licenseUrl>https://github.com/jzeferino/Xamarin.Android.Fingerprint/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jzeferino/Xamarin.Android.Fingerprint</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <dependencies>
+      <group targetFramework="MonoAndroid10">
+        <dependency id="Xamarin.Android.Support.v4" version="23.3.0"/>
+      </group>
+    </dependencies>
+    <description>Xamarin.Android.Fingerprint is a library that allows you to use the fingerprint sensor in a quick and practical way for android marshmallow and above.</description>    
+    <tags>xamarin, android, fingerprint, sensor</tags>
+  </metadata>
+  <files>
+    <file src="src/Xamarin.Android.Fingerprint/bin/Release/Xamarin.Android.Fingerprint.dll" target="lib/MonoAndroid10" />
+    <file src="src/Xamarin.Android.Fingerprint/bin/Release/Xamarin.Android.Fingerprint.xml" target="lib/MonoAndroid10" />
+  </files>
+</package>
