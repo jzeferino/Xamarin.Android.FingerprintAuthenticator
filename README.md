@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/nfel4y6r45wwnggt?svg=true)](https://ci.appveyor.com/project/jzeferino/xamarin-android-fingerprint/)   [![NuGet](https://img.shields.io/nuget/v/Xamarin.Android.FingerprintAuthenticator.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/)
+[![Build status](https://ci.appveyor.com/api/projects/status/s7yqf5uueny6ofeo?svg=true)](https://ci.appveyor.com/project/jzeferino/xamarin-android-fingerprintauthenticator/)   [![NuGet](https://img.shields.io/nuget/v/Xamarin.Android.FingerprintAuthenticator.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/)
 
 Xamarin.Android.FingerprintAuthenticator
 ===================
@@ -22,13 +22,18 @@ Xamarin.Android.FingerprintAuthenticator is a library that allows you to use the
 Install NuGet [package](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/).
 
 ### Step 2
+Add fingerprint permission in manifest.
+```xml
+<uses-permission android:name="android.permission.USE_FINGERPRINT" />
+```
+### Step 3
 
 In your activity or dialog implement the interface `FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks`  :
 ```c#
 public class FinderprintDialogFragment : AppCompatDialogFragment, FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks
 ```
 
-### Step 3
+### Step 4
 
 Implement the callbacks
 ```c#
@@ -51,13 +56,13 @@ private void UpdateUI(string text, int imageResource = Resource.Drawable.ic_fing
 }
 ```
 
-### Step 4
+### Step 5
 Create instance of FingerprintAuthenticator:
 ```c#
 _fingerprintAuthenticator = new FingerprintAuthenticator(Activity, this);
 ```
 
-### Step 5
+### Step 6
 Start and stop listening for fingerprint sensor:
 ```c#
 public override void OnResume()
