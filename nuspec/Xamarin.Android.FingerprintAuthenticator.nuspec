@@ -5,7 +5,7 @@
     <version>$version$</version>
     <title>Xamarin.Android.FingerprintAuthenticator</title>
     <authors>jzeferino</authors>
-    <iconUrl>https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator/blob/master/art/nuget_icon.png?raw=true</iconUrl>
+    <iconUrl>https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator/blob/master/art/icon_nuget.png?raw=true</iconUrl>
     <licenseUrl>https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
