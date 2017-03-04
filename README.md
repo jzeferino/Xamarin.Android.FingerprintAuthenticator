@@ -28,15 +28,11 @@ Add fingerprint permission in manifest.
 ```
 ### Step 3
 
-In your activity or dialog implement the interface `FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks`  :
+In your Activity or Dialog implement the interface `FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks`  :
 ```c#
 public class FinderprintDialogFragment : AppCompatDialogFragment, FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks
-```
+...
 
-### Step 4
-
-Implement the callbacks
-```c#
 public void FingerprintNotSupported() => UpdateUI("Fingerprint not supported.", Resource.Drawable.ic_info_black);
 
 public void FingerprintsNotEnrolled() => UpdateUI("No fingerprints registered.", Resource.Drawable.ic_info_black);
@@ -56,13 +52,13 @@ private void UpdateUI(string text, int imageResource = Resource.Drawable.ic_fing
 }
 ```
 
-### Step 5
+### Step 4
 Create instance of FingerprintAuthenticator:
 ```c#
 _fingerprintAuthenticator = new FingerprintAuthenticator(Activity, this);
 ```
 
-### Step 6
+### Step 5
 Start and stop listening for fingerprint sensor:
 ```c#
 public override void OnResume()
