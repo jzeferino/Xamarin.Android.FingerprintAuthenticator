@@ -30,7 +30,10 @@ Add fingerprint permission in manifest.
 
 In your Activity or Dialog implement the interface `FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks`  :
 ```c#
+Iterface:
+
 public class FinderprintDialogFragment : AppCompatDialogFragment, FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks
+
 ...
 
 public void FingerprintNotSupported() => UpdateUI("Fingerprint not supported.", Resource.Drawable.ic_info_black);
