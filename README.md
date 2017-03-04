@@ -73,6 +73,8 @@ public override void OnPause()
     _fingerprintAuthenticator.StopAuthentication();
 }
 ```
+### Documentation
+[Documentation](https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator/wiki/Documentation) 
 
 ### License
 [MIT Licence](LICENSE) 
