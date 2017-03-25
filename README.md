@@ -30,26 +30,27 @@ Add fingerprint permission in manifest.
 
 In your Activity or Dialog implement the interface `FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks`  :
 ```c#
-Iterface:
 
-public class FinderprintDialogFragment : AppCompatDialogFragment, FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks
-
-public void FingerprintNotSupported() => UpdateUI("Fingerprint not supported.", Resource.Drawable.ic_info_black);
-
-public void FingerprintsNotEnrolled() => UpdateUI("No fingerprints registered.", Resource.Drawable.ic_info_black);
-
-public void AuthenticationSucceded() => UpdateUI("Authenticaticated.", Resource.Drawable.ic_check_circle_black);
-
-public void FingerprintNotRecognized() => UpdateUI("Wrong fingerprint. Please try again.", Resource.Drawable.ic_info_black);
-
-public void AuthenticationError(AuthenticationErrorCodes errorCode, string humanReadMessage) => UpdateUI($"{errorCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
-
-public void AuthenticationHelp(AuthenticationHelpCodes helpCode, string humanReadMessage) => UpdateUI($"{helpCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
-
-private void UpdateUI(string text, int imageResource = Resource.Drawable.ic_fingerprint_black)
+public class FinderprintDialogFragment : AppCompatDialogFragment, FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks 
 {
-    _fingerprintStatus.Text = text;
-    _imgFingerprintStatus.SetImageResource(imageResource);
+
+  public void FingerprintNotSupported() => UpdateUI("Fingerprint not supported.", Resource.Drawable.ic_info_black);
+
+  public void FingerprintsNotEnrolled() => UpdateUI("No fingerprints registered.", Resource.Drawable.ic_info_black);
+
+  public void AuthenticationSucceded() => UpdateUI("Authenticaticated.", Resource.Drawable.ic_check_circle_black);
+
+  public void FingerprintNotRecognized() => UpdateUI("Wrong fingerprint. Please try again.", Resource.Drawable.ic_info_black);
+
+  public void AuthenticationError(AuthenticationErrorCodes errorCode, string humanReadMessage) => UpdateUI($"{errorCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
+
+  public void AuthenticationHelp(AuthenticationHelpCodes helpCode, string humanReadMessage) => UpdateUI($"{helpCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
+
+  private void UpdateUI(string text, int imageResource = Resource.Drawable.ic_fingerprint_black)
+  {
+      _fingerprintStatus.Text = text;
+      _imgFingerprintStatus.SetImageResource(imageResource);
+  }
 }
 ```
 
