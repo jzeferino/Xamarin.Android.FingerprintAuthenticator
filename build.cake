@@ -18,7 +18,7 @@ var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("versio
 Setup((context) =>
 {
 	Information("AppVeyor: {0}", isRunningOnAppVeyor);
-	Information ("Running on Windows: {0}", isRunningOnWindows);
+	Information("Running on Windows: {0}", isRunningOnWindows);
 	Information("Configuration: {0}", configuration);
 });
 
@@ -57,7 +57,7 @@ Task ("NuGet")
 		var sv = ParseSemVer (version);
 		var nugetVersion = CreateSemVer (sv.Major, sv.Minor, sv.Patch).ToString();
 		
-		NuGetPack ("./nuspec/Xamarin.Android.Fingerprint.nuspec", 
+		NuGetPack ("./nuspec/Xamarin.Android.FingerprintAuthenticator.nuspec", 
 			new NuGetPackSettings 
 				{ 
 					Version = nugetVersion,

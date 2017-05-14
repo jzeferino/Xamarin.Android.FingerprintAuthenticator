@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/nfel4y6r45wwnggt?svg=true)](https://ci.appveyor.com/project/jzeferino/xamarin-android-fingerprint/)   [![NuGet](https://img.shields.io/nuget/v/Xamarin.Android.FingerprintAuthenticator.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/)
+[![Build status](https://ci.appveyor.com/api/projects/status/s7yqf5uueny6ofeo?svg=true)](https://ci.appveyor.com/project/jzeferino/xamarin-android-fingerprintauthenticator/)   [![NuGet](https://img.shields.io/nuget/v/Xamarin.Android.FingerprintAuthenticator.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/)
 
 Xamarin.Android.FingerprintAuthenticator
 ===================
@@ -22,32 +22,35 @@ Xamarin.Android.FingerprintAuthenticator is a library that allows you to use the
 Install NuGet [package](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/).
 
 ### Step 2
-
-In your activity or dialog implement the interface `FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks`  :
-```c#
-public class FinderprintDialogFragment : AppCompatDialogFragment, FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks
+Add fingerprint permission in manifest.
+```xml
+<uses-permission android:name="android.permission.USE_FINGERPRINT" />
 ```
-
 ### Step 3
 
-Implement the callbacks
+In your Activity or Dialog implement the interface `FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks`  :
 ```c#
-public void FingerprintNotSupported() => UpdateUI("Fingerprint not supported.", Resource.Drawable.ic_info_black);
 
-public void FingerprintsNotEnrolled() => UpdateUI("No fingerprints registered.", Resource.Drawable.ic_info_black);
-
-public void AuthenticationSucceded() => UpdateUI("Authenticaticated.", Resource.Drawable.ic_check_circle_black);
-
-public void FingerprintNotRecognized() => UpdateUI("Wrong fingerprint. Please try again.", Resource.Drawable.ic_info_black);
-
-public void AuthenticationError(AuthenticationErrorCodes errorCode, string humanReadMessage) => UpdateUI($"{errorCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
-
-public void AuthenticationHelp(AuthenticationHelpCodes helpCode, string humanReadMessage) => UpdateUI($"{helpCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
-
-private void UpdateUI(string text, int imageResource = Resource.Drawable.ic_fingerprint_black)
+public class FinderprintDialogFragment : AppCompatDialogFragment, FingerprintAuthenticator.IFingerprintAuthenticatorCallbacks 
 {
-    _fingerprintStatus.Text = text;
-    _imgFingerprintStatus.SetImageResource(imageResource);
+
+  public void FingerprintNotSupported() => UpdateUI("Fingerprint not supported.", Resource.Drawable.ic_info_black);
+
+  public void FingerprintsNotEnrolled() => UpdateUI("No fingerprints registered.", Resource.Drawable.ic_info_black);
+
+  public void AuthenticationSucceded() => UpdateUI("Authenticaticated.", Resource.Drawable.ic_check_circle_black);
+
+  public void FingerprintNotRecognized() => UpdateUI("Wrong fingerprint. Please try again.", Resource.Drawable.ic_info_black);
+
+  public void AuthenticationError(AuthenticationErrorCodes errorCode, string humanReadMessage) => UpdateUI($"{errorCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
+
+  public void AuthenticationHelp(AuthenticationHelpCodes helpCode, string humanReadMessage) => UpdateUI($"{helpCode.ToString()} {humanReadMessage}", Resource.Drawable.ic_info_black);
+
+  private void UpdateUI(string text, int imageResource = Resource.Drawable.ic_fingerprint_black)
+  {
+      _fingerprintStatus.Text = text;
+      _imgFingerprintStatus.SetImageResource(imageResource);
+  }
 }
 ```
 
@@ -72,6 +75,8 @@ public override void OnPause()
     _fingerprintAuthenticator.StopAuthentication();
 }
 ```
+### Documentation
+[Documentation](https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator/wiki/Documentation) 
 
 ### License
 [MIT Licence](LICENSE) 
