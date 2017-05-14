@@ -7,7 +7,7 @@ Xamarin.Android.FingerprintAuthenticator
   <img src="https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator/blob/master/art/icon.png?raw=true"/>
 </p>
 
-Xamarin.Android.FingerprintAuthenticator is a library that allows you to use the fingerprint sensor in a quick and practical way for android marshmallow and above.
+Xamarin.Android.FingerprintAuthenticator is a library that allows you to use the fingerprint sensor in a quick and practical way for android Marshmallow and above.
 
 ## Demo
 <p align="center">
@@ -52,7 +52,7 @@ private void UpdateUI(string text, int imageResource = Resource.Drawable.ic_fing
 ```
 
 ### Step 4
-Create instance of FingerprintAuthenticator:
+Create an instance of FingerprintAuthenticator:
 ```c#
 _fingerprintAuthenticator = new FingerprintAuthenticator(Activity, this);
 ```
