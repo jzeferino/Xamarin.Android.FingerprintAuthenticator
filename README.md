@@ -75,6 +75,10 @@ public override void OnPause()
     _fingerprintAuthenticator.StopAuthentication();
 }
 ```
+### Compatibility 
+
+Since Fingerprint support was added in Android 6.0 (Marshmallow) this library only works in Android 6.0 and above.
+
 ### Documentation
 [Documentation](https://github.com/jzeferino/Xamarin.Android.FingerprintAuthenticator/wiki/Documentation) 
 
