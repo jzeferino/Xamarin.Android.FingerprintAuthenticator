@@ -55,6 +55,20 @@ namespace Xamarin.Android.Fingerprint
         }
 
         /// <summary>
+        /// Has enrolled fingerprints.
+        /// </summary>
+        /// <returns><c>true</c>, if has enrolled fingerprints, <c>false</c> otherwise.</returns>
+        /// <param name="context">Context.</param>
+        public static bool HasEnrolledFingerprints(Context context) => FingerprintManagerCompat.From(context).HasEnrolledFingerprints;
+
+        /// <summary>
+        /// Has fingerprint hardware.
+        /// </summary>
+        /// <returns><c>true</c>, if has fingerprint hardware, <c>false</c> otherwise.</returns>
+        /// <param name="context">Context.</param>
+        public static bool IsHardwareDetected(Context context) => FingerprintManagerCompat.From(context).IsHardwareDetected;
+
+        /// <summary>
         /// Check the fingerprint is available.
         /// </summary>
         /// <returns><c>true</c>, if fingerprint is available, <c>false</c> otherwise.</returns>
