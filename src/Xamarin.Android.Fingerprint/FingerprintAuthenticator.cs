@@ -51,7 +51,7 @@ namespace Xamarin.Android.Fingerprint
         public static bool IsFingerprintAvailable(Context context)
         {
             var fingerprintManager = FingerprintManagerCompat.From(context);
-            return fingerprintManager.HasEnrolledFingerprints && fingerprintManager.IsHardwareDetected;
+            return fingerprintManager.IsHardwareDetected && fingerprintManager.HasEnrolledFingerprints;
         }
 
         /// <summary>
