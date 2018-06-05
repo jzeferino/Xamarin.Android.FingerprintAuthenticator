@@ -1,4 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/s7yqf5uueny6ofeo?svg=true)](https://ci.appveyor.com/project/jzeferino/xamarin-android-fingerprintauthenticator/)   [![NuGet](https://img.shields.io/nuget/v/Xamarin.Android.FingerprintAuthenticator.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/)
+[![Build Status](https://www.bitrise.io/app/aa2cdd4116e4874c/status.svg?token=MEumgtBjN7gHtLRGPeVHiA&branch=master)](https://www.bitrise.io/app/aa2cdd4116e4874c)
+[![NuGet](https://img.shields.io/nuget/v/Xamarin.Android.FingerprintAuthenticator.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.Android.FingerprintAuthenticator/)
 
 Xamarin.Android.FingerprintAuthenticator
 ===================
