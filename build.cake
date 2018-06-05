@@ -2,7 +2,7 @@
 #addin nuget:?package=semver&version=2.0.4
 
 // Enviroment
-var isRunningOnAppVeyor = AppVeyor.IsRunningOnAppVeyor;
+var isRunningBitrise = Bitrise.IsRunningOnBitrise;
 var isRunningOnWindows = IsRunningOnWindows();
 
 // Arguments.
@@ -14,11 +14,11 @@ var solutionFile = new FilePath("Xamarin.Android.Fingerprint.sln");
 var artifactsDirectory = new DirectoryPath("artifacts");
 
 // Versioning.
-var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "9.9.9-build9");
+var version = CreateSemVer(1, 0, 2);
 
 Setup((context) =>
 {
-	Information("AppVeyor: {0}", isRunningOnAppVeyor);
+	Information("Bitrise: {0}", isRunningBitrise);
 	Information("Running on Windows: {0}", isRunningOnWindows);
 	Information("Configuration: {0}", configuration);
 });
@@ -28,7 +28,7 @@ Task("Clean")
 	{	
 		CleanDirectory(artifactsDirectory);
 
-		DotNetBuild(solutionFile, settings => settings
+		MSBuild(solutionFile, settings => settings
 				.SetConfiguration(configuration)
 				.WithTarget("Clean")
 				.SetVerbosity(Verbosity.Minimal));
@@ -45,7 +45,7 @@ Task("Build")
 	.IsDependentOn("Restore")
 	.Does(() =>  
 	{	
-		DotNetBuild(solutionFile, settings => settings
+		MSBuild(solutionFile, settings => settings
 					.SetConfiguration(configuration)
 					.WithTarget("Build")
 					.SetVerbosity(Verbosity.Minimal));
@@ -55,9 +55,10 @@ Task ("NuGet")
 	.IsDependentOn ("Build")
 	.Does (() =>
 	{
-		var sv = ParseSemVer (version);
-		var nugetVersion = CreateSemVer (sv.Major, sv.Minor, sv.Patch).ToString();
+		Information("Nuget version: {0}", version);
 		
+  		var nugetVersion = Bitrise.Environment.Repository.GitBranch == "master" ? version.ToString() : version.Change(prerelease: "pre" + Bitrise.Environment.Build.BuildNumber).ToString();
+	
 		NuGetPack ("./nuspec/Xamarin.Android.FingerprintAuthenticator.nuspec", 
 			new NuGetPackSettings 
 				{ 
